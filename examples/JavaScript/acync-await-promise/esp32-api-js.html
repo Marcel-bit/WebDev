@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32 LED Control</title>
+    <script>
+        // Function to turn the LED on
+        async function turnOnLED() {
+            try{
+            const response = await fetch('http://192.168.64.108/led/on')
+                if (response.ok) {
+                    console.log('LED turned ON');
+                    document.getElementById('led-status').innerText = 'ON';
+                } else {
+                    console.error('Error turning LED ON');
+                }
+            }
+            catch(error){
+                console.error('Fetch error:', error)
+            };
+        }
+
+        // Function to turn the LED off
+        async function turnOffLED() {
+           
+            try{
+                const response = await fetch('http://192.168.64.108/led/off')
+                if (response.ok) {
+                    console.log('LED turned OFF');
+                    document.getElementById('led-status').innerText = 'OFF';
+                } else {
+                    console.error('Error turning LED OFF');
+                }
+            }catch(error){
+                console.error('Fetch error:', error);
+            }
+                
+        }
+    </script>
+</head>
+<body>
+    <h1>ESP32 LED Control</h1>
+    <p>LED is currently: <strong id="led-status">OFF</strong></p>
+    <button onclick="turnOnLED()">Turn ON LED</button>
+    <button onclick="turnOffLED()">Turn OFF LED</button>
+</body>
+</html>

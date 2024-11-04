@@ -1,0 +1,101 @@
+/* Reset basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+.container {
+    display: grid;
+    grid-template-areas: 
+    "sidebar header"
+    "sidebar main-content";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100vh; 
+}
+
+.header {
+    grid-area: header;
+    background-color: #f0ece2;
+    text-align: center;
+    position: fixed;
+    margin-left: 200px;
+    width: 100vw;
+    padding: 20px;
+    pointer-events: none;  /* Allows scrolling through the header */
+
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #dfd3c3;
+    text-align: center;
+    padding: 20px;
+    width: 200px;
+    pointer-events: none;  /* Allows scrolling through the header */
+
+    
+}
+
+.main-content {
+    grid-area: main-content;
+    background-color: #c7b198;
+    padding: 20px;
+    overflow-y: auto;
+    margin-top: 57px;      /* Space for fixed header */
+    margin-left: 0 px;    /* Space for fixed sidebar */
+  }
+  
+#search{
+    text-align: left;
+    position: absolute;
+    left: 50px;
+
+}
+
+#icons{
+    text-align: left;
+    position: absolute;
+    left: 50px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        display: grid;
+        grid-template-areas: 
+        "header"
+        "sidebar"
+        "main-content";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr;
+    }
+
+    .sidebar {
+        grid-area: sidebar;
+        background-color: #dfd3c3;
+        text-align: center;
+        padding: 20px;
+        position: fixed;
+        top: 57px;
+        bottom: auto;
+        width: 100vw;
+        pointer-events: none;  /* Allows scrolling through the header */
+
+        
+    }
+
+    .main-content {
+        margin-top: 113px;      /* Space for fixed header */
+        margin-left: 0px;    /* Space for fixed sidebar */
+      }
+}
+
+.main-content p{
+    margin-top: 0px;
+    margin-bottom: 300px;
+}

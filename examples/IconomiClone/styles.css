@@ -1,0 +1,231 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+p {
+    padding: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.container{
+    display: grid;
+    grid-template-areas: 
+    "navbar header "
+    "navbar main-content "
+    "navbar footer ";
+    grid-template-columns: 200px 1fr; /*first "nav" column 200px wide, then the remaining space 2/3 2nd colum 1/3 the 3rd column*/
+    grid-template-rows:  60px auto 70px; /*1st row 60px 2nd row however much it needs 3rd ro 70px */
+    height: 100vh; /*defines the web page height which is the whole height*/
+    position: relative; /*enables absolute scaling on parent element(container) - for the stuff inside to be relative on container*/
+}
+
+.header{
+    grid-area: header;
+    text-align: center;
+    padding: 20px;
+    background-color: #FFFFFF;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 20px;
+    left: 200px;
+    z-index: 1; /*ensures header stays on top of content when scrolled - otherwise border from content shows in header*/
+}
+.navbar{
+    grid-area: navbar;
+    text-align: center;
+    padding: 20px;
+    background-color: #171F45;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 160px;
+    color: white;
+}
+.content{
+    grid-area: main-content;
+    text-align: center;
+    padding: 20px;
+    background-color: #E5E6EE;
+}
+
+.footer{
+    grid-area: footer;
+    text-align: center;
+    padding: 20px;
+    background-color: lightsalmon;
+    
+}
+
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-container {
+    display: grid;
+    grid-template-areas:
+    
+    "account graph"
+    "suggested suggested"
+    "holdings holdings";
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 200px 200px auto;
+    position: relative;
+    gap: 20px;
+}
+
+.account{
+    grid-area: account;
+    padding: 20px; /* Padding inside the account box */
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.suggested{
+    grid-area: suggested;
+    background-color: #E5E6EE;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.suggested-feed{
+    padding: 20px; /* Padding inside the account box */
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    width: 100%;
+    height: 150px;
+    
+}
+
+.graph{
+    grid-area: graph;
+    padding: 20px; /* Padding inside the account box */
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.holdings{
+    grid-area: holdings;
+    padding: 20px; /* Padding inside the account box */
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    
+}
+.selection{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #C9CBCD;
+    
+}
+
+.assets-container{
+    display: grid;
+    grid-template-areas:
+    
+    "asset-label price-label percentage-label"
+    "asset price percentage";
+    grid-template-columns: 4fr 2fr 2fr;
+    grid-template-rows: 40px auto;
+    position: relative;
+    
+    
+}
+
+.asset-label{
+    text-align: left;
+    font-size: 10px;
+    color: #C9CBCD;
+}
+.asset{
+    text-align: left;
+    border-top: 1px solid #C9CBCD;
+}
+
+.price-label{
+    text-align: right;
+    font-size: 10px;
+    color: #C9CBCD;
+}
+.price{
+    text-align: right;
+    border-top: 1px solid #C9CBCD;
+}
+
+.percentage-label{
+    text-align: right;
+    font-size: 10px;
+    color: #C9CBCD;
+}
+.percentage{
+    text-align: right;
+    border-top: 1px solid #C9CBCD;
+}
+
+
+
+.holdings p{
+    margin: 20px
+}
+
+.holdings button{
+    padding: 5px 10px;
+    margin: 0px 10px 0px 0px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #2fabb4;
+    box-sizing: border-box;
+    border-radius: 3px;
+    background-color: #FFFFFF;
+
+}
+
+
+
+@media(max-width:768px){
+    .container{
+        display: grid;
+        grid-template-areas: 
+        "header"
+        "navbar"
+        "main-content"
+        "ads"
+        "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px auto auto auto 70px;
+    }
+
+    .header{
+        grid-area: header;
+        text-align: center;
+        padding: 20px;
+        background-color: lightblue;
+        position:sticky;
+        
+        z-index: 1; /*ensures header stays on top of content when scrolled - otherwise border from content shows in header*/
+    }
+
+    .navbar{
+        grid-area: navbar;
+        text-align: center;
+        padding: 20px;
+        background-color: lightcoral;
+        position:static;
+        width: 100%;
+        z-index: 0; /*ensures header stays on top of content when scrolled - otherwise border from content shows in header*/
+    }
+
+    .content{
+        grid-area: main-content;
+        text-align: center;
+        padding: 20px;
+        background-color: lightcyan;
+        
+    }
+}
